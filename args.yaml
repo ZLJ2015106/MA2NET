@@ -1,0 +1,59 @@
+common:
+    train_label_dir: /home/zlj/shuffle_data/Y_train.mat
+    train_visual_dir: /home/zlj/shuffle_data/scene_train.mat
+    train_audio_dir: /home/zlj/shuffle_data/mfcc_train.mat
+    train_tra_dir: /home/zlj/shuffle_data/tra_train.mat
+    test_label_dir: /home/zlj/shuffle_data/Y_test.mat
+    test_visual_dir: /home/zlj/shuffle_data/scene_test.mat
+    test_audio_dir: /home/zlj/shuffle_data/mfcc_test.mat
+    test_tra_dir: /home/zlj/shuffle_data/tra_test.mat
+    labelgcn_name: /media/Harddisk/zlj/data/LabelVectorized.mat
+    adj: /home/zlj/MCSRv_Final/adj_less.mat
+    audio_dim: 2048
+    audio_out: 512
+    logger_name: ./run_0112/
+    curve_tensorb: ./plot_0112/
+    log_dir: /home/zlj/MCSRv_Final/log/log_20210112.txt
+    num_classes: 63
+    lgcn_in_features: 300
+    lgcn_out_features: 2048
+    sl_in_dim: 2048
+    sl_hidden_dim: 1576
+    sl_out_dim: 1024
+    sl_dropout:
+    fusion_style: concat
+    dim_encoder: 3072
+    out_dim_common: 2048
+    atte_d_model: 189
+    d_u: 2048
+    d_c: 63
+    MA_dropout:
+    epochs: 250
+    lam1: 1
+    lam2: 1
+    lam3: 1
+    learning_rate: 0.1
+    lr_update: 1000
+    batch_size: 128
+    log_step: 5
+    test_epoch: 5
+    grad_clip: 1
+    resume: false
+    difficult_examples: True
+
+    lr_scheduler:
+        type: STEP
+        lr_steps: [100,150,200]
+        lr_mults: [0.1, 0.1, 0.1]
+
+        base_lr: 0.2
+        warmup_steps: 2500
+        warmup_lr: 0.8
+        max_iter: 62500
+
+    optimizer:
+        type: SGD
+        momentum: 0.9
+        weight_decay: 0.0001
+        nesterov: True
+
